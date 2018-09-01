@@ -1,0 +1,22 @@
+{
+  "name": "react-todolist",
+  "version": "1.0.0",
+  "description": "tr",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/starlikerain/React-todoList.git"
+  },
+  "keywords": [
+    "react-todoList"
+  ],
+  "author": "StarLikeRain",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/starlikerain/React-todoList/issues"
+  },
+  "homepage": "https://github.com/starlikerain/React-todoList#readme"
+}
