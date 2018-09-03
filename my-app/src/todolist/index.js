@@ -1,19 +1,26 @@
-import React, { Component } from "react"
+import React, {Component} from "react"
 
-import TodoItem from '../todoitem' // ITEM 来吧！
+import TodoItem from "../todoitem" // ITEM 来吧！
+import Footer from "../footer"
 
 export default class TodoList extends Component {
     constructor(props) {
         super(props)
+        this.STATUS_DONE = 1;
         this.state = {}
     }
 
     render() {
-        let {list} = this.props; // 每一条的数据哦
-        
+        let {list, deleteTask} = this.props // 每一条的数据哦
+
         let comps = list.map((item) => {
-            return <TodoItem item={item} key={item.id} />;
+            return <TodoItem deleteTask={deleteTask} item={item} key={item.id}/>
         })
+
+        let totalCount = list.length
+        let doneCount = list.filter((status) => {
+            return status.status === this.STATUS_DONE
+        }).length
 
         return (
             <div className="list-container">
@@ -30,6 +37,7 @@ export default class TodoList extends Component {
 
                 <div className="footer">
                     {/* 总结一下完成状态 */}
+                    <Footer doneCount={doneCount} totalCount={totalCount}></Footer>
                 </div>
             </div>
         )

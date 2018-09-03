@@ -1,23 +1,27 @@
 import React, {Component} from "react"
-
+import './index.css'
 // 我是最基础的 item 卧槽
 export default class TodoItem extends Component {
-    
+
     constructor(props) {
         super(props)
         this.state = {}
     }
 
     toggleTaskStatus = () => {
-        console.log('toggleTaskStatus');
+        console.log("toggleTaskStatus")
     }
 
     delTask = () => {
-        console.log('delTask');
+        let {item, deleteTask} = this.props
+
+        deleteTask(item)
+        console.log("delTask")
     }
 
     render() {
-        let {item} = this.props  /** 预期会获得 id text status */
+        let {item} = this.props
+        /** 预期会获得 id text status */
         return (
             <div className="item-container">
 
