@@ -1,5 +1,5 @@
 import React, {Component} from "react"
-
+import './index.css'
 /***
  * 最外侧的 form 表单
  */
@@ -25,14 +25,14 @@ export default class TodoForm extends Component {
             <div className="form-container">
                 <form className="form">
                     <div className="ipt-container">
-                        <input type="text" placeholder="你想要做点什么"
+                        <input className="wannaDoSth" type="text" placeholder="你想要做点什么"
                                ref={(ipt) => {
                                    this.ipt = ipt
                                }}
                         />
                     </div>
-                    <div className="btn-container" onClick={this.submitTask}>
-                        <button>保存任务</button>
+                    <div className="btn-save-container" onClick={this.submitTask}>
+                        <button>SAVE TASK</button>
                     </div>
                 </form>
             </div>

@@ -8,6 +8,8 @@ import TodoForm from "../todoform"
  */
 import TodoList from "../todolist"
 
+import "./index.css"
+
 export default class TodoBox extends Component {
     constructor(props) {
         super(props)
@@ -25,7 +27,7 @@ export default class TodoBox extends Component {
                 },
                 {
                     id: 3,
-                    status: 0,
+                    status: 1,
                     text: "StarLikeRain React 3"
                 },
                 {
@@ -35,6 +37,20 @@ export default class TodoBox extends Component {
                 },
             ]
         }
+    }
+
+    toggleStatus = (item) => {
+        let index = this.state.list.findIndex((item1) => {
+            return item1.id === item.id  // 卧槽这里刚才只写了一个「等号」 真恶心
+        })
+        let list = [...this.state.list] // 拷贝了一份，不是地址引用
+        // 切换 status
+        list[index].status === 1 ? (list[index].status = 0) : (list[index].status = 1)
+        window.listt = list
+        this.setState({
+            list: list
+        })
+
     }
 
     deleteTask = (item) => {
@@ -65,9 +81,14 @@ export default class TodoBox extends Component {
     render() {
         let {list} = this.state
         return (
-            <div>
-                <TodoList list={list} deleteTask={this.deleteTask}/>
+            <div className="TodoBox-container">
+
+                <TodoList list={list} deleteTask={this.deleteTask}
+                          toggleStatus={this.toggleStatus}
+                />
                 <TodoForm saveTask={this.saveTask}/>
+
+
             </div>
         )
     }

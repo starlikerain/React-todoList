@@ -1,0 +1,16 @@
+body{
+    background-color: #45a8ef;
+    padding-left: 300px;
+    padding-right: 300px;
+    position: relative;
+}
+
+.TodoBox-container {
+    background-color: white;
+    position: absolute;
+    top: 30px;
+    width: 800px;
+    padding: 10px;
+    border: 2px solid black;
+    border-radius: 10px;
+}

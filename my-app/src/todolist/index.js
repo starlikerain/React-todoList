@@ -2,7 +2,7 @@ import React, {Component} from "react"
 
 import TodoItem from "../todoitem" // ITEM 来吧！
 import Footer from "../footer"
-
+import './index.css'
 export default class TodoList extends Component {
     constructor(props) {
         super(props)
@@ -11,10 +11,12 @@ export default class TodoList extends Component {
     }
 
     render() {
-        let {list, deleteTask} = this.props // 每一条的数据哦
+        let {list, deleteTask,toggleStatus} = this.props // 每一条的数据哦
 
         let comps = list.map((item) => {
-            return <TodoItem deleteTask={deleteTask} item={item} key={item.id}/>
+            return <TodoItem deleteTask={deleteTask}
+                             toggleStatus={toggleStatus}
+                             item={item} key={item.id}/>
         })
 
         let totalCount = list.length

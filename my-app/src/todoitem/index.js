@@ -1,15 +1,18 @@
 import React, {Component} from "react"
-import './index.css'
+import "./index.css"
+
 // 我是最基础的 item 卧槽
 export default class TodoItem extends Component {
-
     constructor(props) {
         super(props)
         this.state = {}
     }
 
     toggleTaskStatus = () => {
-        console.log("toggleTaskStatus")
+        console.log("todoitem toggleTaskStatus")
+        let {item, toggleStatus} = this.props
+        toggleStatus(item);
+        // this.checkbox.checked = true
     }
 
     delTask = () => {
@@ -25,14 +28,14 @@ export default class TodoItem extends Component {
         return (
             <div className="item-container">
 
-
                 <div className="item-inner" onClick={this.toggleTaskStatus.bind(this)}>
                     <span className="chk-container">
-                        <checkbox className="chk"/>
-                        <span className="text">{item.text}</span>
+                        {/*<Checkbox/>*/}
+                        <input type="checkbox" checked={item.status}/>
+
+                        <span className="textIpt">{item.text}</span>
                     </span>
                 </div>
-
 
                 <div className="del-container" onClick={this.delTask}>
                     <span>删除</span>
@@ -41,3 +44,5 @@ export default class TodoItem extends Component {
         )
     }
 }
+
+
