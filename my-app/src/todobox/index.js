@@ -13,30 +13,52 @@ import "./index.css"
 export default class TodoBox extends Component {
     constructor(props) {
         super(props)
+        // this.state = {
+        //     list: [
+        //         {
+        //             id: 1,
+        //             status: 1,
+        //             text: "StarLikeRain React 1"
+        //         },
+        //         {
+        //             id: 2,
+        //             status: 0,
+        //             text: "StarLikeRain React 2"
+        //         },
+        //         {
+        //             id: 3,
+        //             status: 1,
+        //             text: "StarLikeRain React 3"
+        //         },
+        //         {
+        //             id: 4,
+        //             status: 0,
+        //             text: "StarLikeRain React 4"
+        //         },
+        //     ]
+        // }
         this.state = {
             list: [
                 {
                     id: 1,
                     status: 1,
                     text: "StarLikeRain React 1"
-                },
-                {
-                    id: 2,
-                    status: 0,
-                    text: "StarLikeRain React 2"
-                },
-                {
-                    id: 3,
-                    status: 1,
-                    text: "StarLikeRain React 3"
-                },
-                {
-                    id: 4,
-                    status: 0,
-                    text: "StarLikeRain React 4"
-                },
+                }
             ]
         }
+    }
+
+    componentWillMount = () => {
+        this.setState({
+            list: JSON.parse(window.localStorage.stats)
+        })
+    }
+
+    shouldComponentUpdate = () => {
+        setTimeout(() => {
+            window.localStorage.stats = JSON.stringify(this.state.list) // 保存到local storage 看看
+        }, 500)
+        return true
     }
 
     toggleStatus = (item) => {
@@ -79,6 +101,7 @@ export default class TodoBox extends Component {
     }
 
     render() {
+
         let {list} = this.state
         return (
             <div className="TodoBox-container">

@@ -9,17 +9,14 @@ export default class TodoItem extends Component {
     }
 
     toggleTaskStatus = () => {
-        console.log("todoitem toggleTaskStatus")
         let {item, toggleStatus} = this.props
-        toggleStatus(item);
+        toggleStatus(item)
         // this.checkbox.checked = true
     }
 
     delTask = () => {
         let {item, deleteTask} = this.props
-
         deleteTask(item)
-        console.log("delTask")
     }
 
     render() {
