@@ -49,14 +49,16 @@ export default class TodoBox extends Component {
     }
 
     componentWillMount = () => {
-        this.setState({
-            list: JSON.parse(window.localStorage.stats)
-        })
+        if (window.localStorage.dataStats) {
+            this.setState({
+                list: JSON.parse(window.localStorage.dataStats)
+            })
+        }
     }
 
     shouldComponentUpdate = () => {
         setTimeout(() => {
-            window.localStorage.stats = JSON.stringify(this.state.list) // 保存到local storage 看看
+            window.localStorage.dataStats = JSON.stringify(this.state.list) // 保存到local storage 看看
         }, 500)
         return true
     }
