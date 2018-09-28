@@ -1,7 +1,6 @@
 body{
+    width: 100vw;
     background-color: #45a8ef;
-    padding-left: 300px;
-    padding-right: 300px;
     position: relative;
 }
 
@@ -9,6 +8,8 @@ body{
     background-color: white;
     position: absolute;
     top: 30px;
+    left: 50%;
+    transform: translateX(-50%);
     width: 800px;
     padding: 10px;
     border: 2px solid black;
